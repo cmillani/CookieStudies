@@ -3,16 +3,16 @@ form(action="", method="GET")
         tr
             td(style="width: 10%")
                 - var checked = selectedRadio == "1";
-                input(type='radio', name='option', 
-                value=1, onclick="submitCookieForm()", checked=checked)
+                input(type='radio', name='option', class=htmlClass, 
+                    value=1, onclick=`submitCookieForm("${path}","${htmlClass}")`, checked=checked)
                 div One
-            td(style="width: 10%")
+            td(style="width: 10%", class=htmlClass)
                 - var checked = selectedRadio == "2";
-                input(type='radio',name='option', 
-                value=2, onclick="submitCookieForm()", checked=checked)
+                input(type='radio',name='option', class=htmlClass, 
+                    value=2, onclick=`submitCookieForm("${path}","${htmlClass}")`, checked=checked)
                 div Two
-            td(style="width: 10%")
+            td(style="width: 10%", class=htmlClass)
                 - var checked = selectedRadio == "3";
-                input(type='radio', name='option', 
-                value=3, onclick="submitCookieForm()", checked=checked)
+                input(type='radio', name='option', class=htmlClass, 
+                    value=3, onclick=`submitCookieForm("${path}","${htmlClass}")`, checked=checked)
                 div Three

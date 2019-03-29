@@ -1,6 +1,6 @@
-function submitCookieForm() {
+function submitCookieForm(path, htmlClass) {
     let selected = null;
-    for(button of $("input[type=radio]")) {
+    for(let button of $(`.${htmlClass}`)) {
         if (button.checked) {
             selected = button.value;
         }
@@ -11,10 +11,10 @@ function submitCookieForm() {
     };
 
     var http = new XMLHttpRequest();
-    http.open("POST", "/simpleCookie", true);
+    http.open("POST", path, true);
     http.setRequestHeader("Content-type","application/json");
-    http.send(JSON.stringify(requestData))
+    http.send(JSON.stringify(requestData));
     http.onload = function() {
-        console.log("Sent!")
-    }
+        console.log("Sent!");
+    };
 }
