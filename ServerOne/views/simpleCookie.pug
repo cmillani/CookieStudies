@@ -1,25 +1,5 @@
 extends layout
 
 block content
-    script(src="/javascripts/jquery-3.3.1.min.js")
     script(src="/javascripts/simpleCookieForm.js")
-    form(action="", method="GET")
-        table
-            tr
-                th Option
-            tr
-                td
-                    - var checked = selected == "1";
-                    input(type='radio', name='option', 
-                    value=1, onclick="submitCookieForm()", checked=checked)
-                    div One
-                td
-                    - var checked = selected == "2";
-                    input(type='radio',name='option', 
-                    value=2, onclick="submitCookieForm()", checked=checked)
-                    div Two
-                td
-                    - var checked = selected == "3";
-                    input(type='radio', name='option', 
-                    value=3, onclick="submitCookieForm()", checked=checked)
-                    div Three
+    include components/sessionForm.pug

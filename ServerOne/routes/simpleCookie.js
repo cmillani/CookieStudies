@@ -1,16 +1,17 @@
 var express = require('express');
+var viewEnvironmentBuilder = require('../services/viewEnvironmentBuilder')
+var {cookieNames} = require('../persistence/configurations')
 var router = express.Router();
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-    res.render('simpleCookie', { 
-        selected: req.cookies.selected, 
-        title: 'Server One'  
-    });
+    viewEnvironmentBuilder.buildServerNameVariables(req, res);
+    viewEnvironmentBuilder.buildSessionRadioButton(req, res)
+    res.render('simpleCookie')
 });
 
 router.post('/', function(req, res, next) {
-    res.cookie('selected',req.body.selected)
+    res.cookie(cookieNames.sessionSelectedRadio, req.body.selected)
     res.send();
 });
 
