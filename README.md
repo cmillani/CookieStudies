@@ -17,11 +17,13 @@ Once both scripts have been run successfully, simply type http://serverone.local
 ## Roadmap
 
 - [x] Simple test example: Form with auto save
-- [ ] Persistent and session cookies
-- [ ] HttpOnly and Secure cookies
+- [x] Persistent and session cookies
+- [x] HttpOnly cookies 
+- [ ] Secure cookies
 - [ ] Domain and subdomains
 - [ ] iframe examples
 - [ ] SameSite, Supercookie and third-party cookies
 - [ ] Cross Site Scripting examples
 - [ ] Origin and Referer validation
 - [ ] Authentication data
+- [ ] Cookies alternatives for user session

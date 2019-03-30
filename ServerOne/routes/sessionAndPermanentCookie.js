@@ -13,6 +13,7 @@ router.get('/', function(req, res, next) {
 
 router.post('/', function(req, res, next) {
     let options = {
+        httpOnly: req.body.httpOnly,
         maxAge: 10000
     };
     res.cookie(cookieNames.permanentSelectedRadio, req.body.selected, options);

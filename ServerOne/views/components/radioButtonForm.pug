@@ -16,3 +16,9 @@ form(action="", method="GET")
                 input(type='radio', name='option', class=htmlClass, 
                     value=3, onclick=`submitCookieForm("${path}","${htmlClass}")`, checked=checked)
                 div Three
+    if displayHttpOption
+        include ./httpOnlyCheckbox.pug
+        if liveHttpOption
+            include ./valuePresenter.pug
+    if displaySecureOption
+        include ./isSecureCheckbox.pug
