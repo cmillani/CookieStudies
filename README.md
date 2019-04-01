@@ -19,11 +19,12 @@ Once both scripts have been run successfully, simply type http://serverone.local
 - [x] Simple test example: Form with auto save
 - [x] Persistent and session cookies
 - [x] HttpOnly cookies 
-- [ ] Secure cookies
+- [x] Secure cookies
 - [ ] Domain and subdomains
 - [ ] iframe examples
 - [ ] SameSite, Supercookie and third-party cookies
 - [ ] Cross Site Scripting examples
 - [ ] Origin and Referer validation
+- [ ] Live cookie editing view
 - [ ] Authentication data
 - [ ] Cookies alternatives for user session
