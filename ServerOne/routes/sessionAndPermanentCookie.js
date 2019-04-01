@@ -15,6 +15,7 @@ router.post('/', function(req, res, next) {
     let options = {
         httpOnly: req.body.httpOnly,
         secure: req.body.secure,
+        domain: req.body.domain,
         maxAge: 10000
     };
     res.cookie(cookieNames.permanentSelectedRadio, req.body.selected, options);

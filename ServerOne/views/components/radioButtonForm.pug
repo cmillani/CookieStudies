@@ -20,5 +20,7 @@ form(action="", method="GET")
         include ./httpOnlyCheckbox.pug
     if displaySecureOption
         include ./isSecureCheckbox.pug
+    if displayDomainOption
+        include ./sendDomainCheckbox.pug
     if liveCookieOption
         include ./valuePresenter.pug

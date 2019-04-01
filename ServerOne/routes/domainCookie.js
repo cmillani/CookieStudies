@@ -7,17 +7,8 @@ var router = express.Router();
 router.get('/', function(req, res, next) {
     viewEnvironmentBuilder.buildServerNameVariables(req, res);
     viewEnvironmentBuilder.buildSessionRadioButton(req, res);
-    res.render('simpleCookie');
-});
-
-router.post('/', function(req, res, next) {
-    let options = {
-        httpOnly: req.body.httpOnly,
-        secure: req.body.secure,
-        domain: req.body.domain
-    };
-    res.cookie(cookieNames.sessionSelectedRadio, req.body.selected, options);
-    res.send();
+    viewEnvironmentBuilder.buildPermanentRadioButton(req, res);
+    res.render('domainCookie');
 });
 
 module.exports = router;

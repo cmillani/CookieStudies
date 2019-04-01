@@ -13,6 +13,7 @@ function submitCookieForm(path, htmlClass) {
     let requestData = {
         secure: (checkBoxes.filter("[name=isSecureOption]")[0] || false).checked,
         httpOnly: (checkBoxes.filter("[name=isHttpOnly]")[0] || false).checked,
+        domain: (checkBoxes.filter("[name=sendDomain]")[0] || false).checked ? self.getDomain() : undefined,
         selected: selected
     };
 
@@ -45,6 +46,18 @@ function reloadValues() {
     for (let element of $('.linkToHttp')) {
         element.innerHTML = `<a href=${'http:' + window.location.href.substring(window.location.protocol.length)}> Access without SSL <\a>`;
     }
+
+    for (let element of $('.linkToSubdomain')) {
+        element.innerHTML = `<a href=${window.location.protocol + "//api." + getDomain() + location.href.split(document.domain).pop()}> Access Sub Domain <\a>`;
+    }
+
+    for (let element of $('.linkToDomain')) {
+        element.innerHTML = `<a href=${window.location.protocol + "//" + getDomain() + location.href.split(document.domain).pop()}> Access Domain <\a>`;
+    }
+}
+
+function getDomain() {
+    return document.domain.split(".").slice(-2).join(".");
 }
 
 function getCookieWithName(name) {

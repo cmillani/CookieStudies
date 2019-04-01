@@ -1,0 +1,13 @@
+extends layout
+
+block content
+    include components/subdomainLinks.pug
+    - var liveCookieOption = true 
+    - var displayDomainOption = true   
+    - var htmlClass = "simpleCookie"
+    - var path = htmlClass
+    include components/sessionForm.pug
+    br
+    - var htmlClass = "sessionAndPermanentCookie"
+    - var path = htmlClass
+    include components/permanentForm.pug

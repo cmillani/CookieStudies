@@ -20,7 +20,7 @@ Once both scripts have been run successfully, simply type http://serverone.local
 - [x] Persistent and session cookies
 - [x] HttpOnly cookies 
 - [x] Secure cookies
-- [ ] Domain and subdomains
+- [x] Domain and subdomains
 - [ ] iframe examples
 - [ ] SameSite, Supercookie and third-party cookies
 - [ ] Cross Site Scripting examples
