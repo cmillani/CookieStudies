@@ -15,6 +15,16 @@ RUN npm install
 # Bundle app source
 COPY . .
 
+ARG keyFile="./oneKey.pem"
+ENV KEY_FILE=$keyFile
+
+ARG certFile="./oneCert.pem"
+ENV CERT_FILE=$certFile
+
+ARG applicatioName="Docker Server One"
+ENV APPLICATION_NAME=$applicatioName
+
 EXPOSE 3000
+EXPOSE 3030
 
 CMD [ "npm", "start" ]

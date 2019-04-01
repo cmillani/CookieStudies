@@ -8,6 +8,7 @@ var indexRouter = require('./routes/index');
 var simpleCookieRouter = require('./routes/simpleCookie');
 var sessionAndPermanentCookieRouter = require('./routes/sessionAndPermanentCookie');
 var httpOnlyCookieRouter = require('./routes/httpOnlyCookie');
+var secureCookieRouter = require('./routes/secureCookie');
 
 var app = express();
 
@@ -25,6 +26,7 @@ app.use('/', indexRouter);
 app.use('/simpleCookie', simpleCookieRouter);
 app.use('/sessionAndPermanentCookie', sessionAndPermanentCookieRouter);
 app.use('/httpOnlyCookie', httpOnlyCookieRouter);
+app.use('/secureCookie', secureCookieRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -1,0 +1,16 @@
+extends layout
+
+block content
+    
+    - var displaySecureOption = true 
+    - var liveHttpOption = true   
+    
+    include components/httpsIndicator.pug
+
+    - var htmlClass = "simpleCookie"
+    - var path = htmlClass
+    include components/sessionForm.pug
+    br
+    - var htmlClass = "sessionAndPermanentCookie"
+    - var path = htmlClass
+    include components/permanentForm.pug

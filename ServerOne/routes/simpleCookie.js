@@ -12,7 +12,8 @@ router.get('/', function(req, res, next) {
 
 router.post('/', function(req, res, next) {
     let options = {
-        httpOnly: req.body.httpOnly
+        httpOnly: req.body.httpOnly,
+        secure: req.body.secure
     };
     res.cookie(cookieNames.sessionSelectedRadio, req.body.selected, options);
     res.send();

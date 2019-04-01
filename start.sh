@@ -17,12 +17,12 @@ fi
 eval "$(docker-machine env default)"
 docker build -t cookie-test/server-one $DIR/ServerOne/
 docker kill $(docker ps -q) &> /dev/null
-docker run -p 80:3000 -d cookie-test/server-one
+docker run -p 80:3000 -p 443:3030 -d cookie-test/server-one
 
 eval "$(docker-machine env secundary)"
 docker build -t cookie-test/server-two $DIR/ServerTwo/
 docker kill $(docker ps -q) &> /dev/null
-docker run -p 80:3000 -d cookie-test/server-two
+docker run -p 80:3000 -p 443:3030 -d cookie-test/server-two
 
 echo ----------------------------------------------------------
 echo All set. Run dns.sh in order to map hosts to .local domain

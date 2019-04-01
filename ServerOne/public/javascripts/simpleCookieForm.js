@@ -11,7 +11,8 @@ function submitCookieForm(path, htmlClass) {
     let checkBoxes = inputs.filter("[type=checkbox]");
     
     let requestData = {
-        httpOnly: checkBoxes.filter("[name=isHttpOnly]")[0].checked,
+        secure: (checkBoxes.filter("[name=isSecureOption]")[0] || false).checked,
+        httpOnly: (checkBoxes.filter("[name=isHttpOnly]")[0] || false).checked,
         selected: selected
     };
 
@@ -28,6 +29,21 @@ function submitCookieForm(path, htmlClass) {
 function reloadValues() {
     for(let element of $('.updatable')) {
         element.innerHTML = `The value of the ${element.title} cookie is "${getCookieWithName(element.title)}"`;
+    }
+    var secure = false;
+    if (location.protocol === 'https:') { 
+        secure = true;
+    }
+    for (let element of $('.httpsIndicator')) {
+        element.innerHTML = `Conection is secure: ${secure ? "Yes": "No"}`;
+    }
+
+    for (let element of $('.linkToHttps')) {
+        element.innerHTML = `<a href=${'https:' + window.location.href.substring(window.location.protocol.length)}> Access with SSL <\a>`;
+    }
+
+    for (let element of $('.linkToHttp')) {
+        element.innerHTML = `<a href=${'http:' + window.location.href.substring(window.location.protocol.length)}> Access without SSL <\a>`;
     }
 }
 

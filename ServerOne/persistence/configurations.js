@@ -1,5 +1,5 @@
 
-let applicationName = process.env.APPLCIATION_NAME || 'Server One';
+let applicationName = process.env.APPLICATION_NAME || 'Server One';
 let cookieNames = {
     sessionSelectedRadio: "sessionSelectedRadio",
     permanentSelectedRadio: "permanentSelectedRadio"

@@ -18,7 +18,7 @@ form(action="", method="GET")
                 div Three
     if displayHttpOption
         include ./httpOnlyCheckbox.pug
-        if liveHttpOption
-            include ./valuePresenter.pug
     if displaySecureOption
         include ./isSecureCheckbox.pug
+    if liveHttpOption
+        include ./valuePresenter.pug
