@@ -10,6 +10,7 @@ var sessionAndPermanentCookieRouter = require('./routes/sessionAndPermanentCooki
 var httpOnlyCookieRouter = require('./routes/httpOnlyCookie');
 var secureCookieRouter = require('./routes/secureCookie');
 var domainCookieRouter = require('./routes/domainCookie');
+var iframeRouter = require('./routes/iframe');
 
 var app = express();
 
@@ -29,6 +30,7 @@ app.use('/sessionAndPermanentCookie', sessionAndPermanentCookieRouter);
 app.use('/httpOnlyCookie', httpOnlyCookieRouter);
 app.use('/secureCookie', secureCookieRouter);
 app.use('/domainCookie', domainCookieRouter);
+app.use('/iframe', iframeRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -15,6 +15,16 @@ RUN npm install
 # Bundle app source
 COPY . .
 
+ARG keyFile="./twoKey.pem"
+ENV KEY_FILE=$keyFile
+
+ARG certFile="./twoCert.pem"
+ENV CERT_FILE=$certFile
+
+ARG applicatioName="Docker Server Two"
+ENV APPLICATION_NAME=$applicatioName
+
 EXPOSE 3000
+EXPOSE 3030
 
 CMD [ "npm", "start" ]

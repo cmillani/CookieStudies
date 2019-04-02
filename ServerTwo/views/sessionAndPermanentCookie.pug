@@ -1,0 +1,13 @@
+extends layout
+
+block content
+    p This form generates a session cookie. It should be valid until you close the browser.
+    - var htmlClass = "simpleCookie"
+    - var path = htmlClass
+    include components/sessionForm.pug
+    br
+    p This form generates a permanent cookie with validity of 10 seconds. 
+    p It should last for 10 seconds, even if the browser is closed, but dismisses after the 10 seconds.
+    - var htmlClass = "sessionAndPermanentCookie"
+    - var path = htmlClass
+    include components/permanentForm.pug

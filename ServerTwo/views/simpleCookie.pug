@@ -1,0 +1,8 @@
+extends layout
+
+block content
+    p This form generates a simple cookie. 
+    p Selecting a button and reloading the page should keep the form button selected.
+    - var htmlClass = "simpleCookie"
+    - var path = "simpleCookie"
+    include components/sessionForm.pug

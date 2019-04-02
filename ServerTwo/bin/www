@@ -5,14 +5,17 @@
  */
 
 var app = require('../app');
-var debug = require('debug')('servertwo:server');
+var debug = require('debug')('serverone:server');
 var http = require('http');
+var https = require('https');
+const fs = require('fs');
 
 /**
  * Get port from environment and store in Express.
  */
 
 var port = normalizePort(process.env.PORT || '3000');
+var httpsPort = normalizePort(process.env.PORT || '3030');
 app.set('port', port);
 
 /**
@@ -21,6 +24,13 @@ app.set('port', port);
 
 var server = http.createServer(app);
 
+let keyFile = process.env.SSL_KEY || "./localkey.pem";
+let certFile = process.env.SSL_CERT || "./localcert.pem";
+var httpsServer = https.createServer({
+  key: fs.readFileSync(keyFile),
+  cert: fs.readFileSync(certFile)
+}, app);
+
 /**
  * Listen on provided port, on all network interfaces.
  */
@@ -28,6 +38,10 @@ var server = http.createServer(app);
 server.listen(port);
 server.on('error', onError);
 server.on('listening', onListening);
+
+httpsServer.listen(httpsPort);
+httpsServer.on('error', onError);
+httpsServer.on('listening', onListening);
 
 /**
  * Normalize a port into a number, string, or false.

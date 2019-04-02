@@ -1,0 +1,17 @@
+extends layout
+
+block content
+    p Here things get a little bit spicy.
+    |  With two different domains hosting the same server and using an iFrame to show the other server,
+    |  we can see some security concerns.
+    - var liveCookieOption = true 
+    - var htmlClass = "simpleCookie"
+    - var path = htmlClass
+    include components/sessionForm.pug
+    br
+    - var htmlClass = "sessionAndPermanentCookie"
+    - var path = htmlClass
+    include components/permanentForm.pug
+    br
+    include components/otherServerIframe.pug
+    

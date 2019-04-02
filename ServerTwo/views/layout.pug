@@ -1,7 +1,11 @@
 doctype html
 html
   head
-    title= title
+    script(src="/javascripts/jquery-3.3.1.min.js")
     link(rel='stylesheet', href='/stylesheets/style.css')
-  body
+    script(src="/javascripts/simpleCookieForm.js")
+    
+    title= title
+    h1= title
+  body(onload=`reloadValues()`)
     block content
